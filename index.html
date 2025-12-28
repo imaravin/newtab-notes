@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewTab Notes - Chrome Extension</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin: 40px auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .feature {
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .installation {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+
+        .installation h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .installation ol {
+            margin-left: 25px;
+            color: #666;
+        }
+
+        .installation li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .installation code {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .github-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .github-link:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NewTab Notes</h1>
+            <p class="tagline">Transform your new tab into a powerful note-taking workspace</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/imaravin/newtab-notes/releases" class="btn btn-primary">Download Extension</a>
+                <a href="https://github.com/imaravin/newtab-notes" class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>📁 Folder Organization</h3>
+                    <p>Organize your notes into color-coded folders for better structure and quick access.</p>
+                </div>
+                <div class="feature">
+                    <h3>✏️ Rich Text Editor</h3>
+                    <p>Full WYSIWYG editor powered by Quill.js with formatting, lists, and styling options.</p>
+                </div>
+                <div class="feature">
+                    <h3>✅ Interactive Checklists</h3>
+                    <p>Create and manage checklists within your notes. Perfect for to-do lists and tasks.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔍 Powerful Search</h3>
+                    <p>Quickly find any note by searching through titles and content across all folders.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎨 Custom Wallpapers</h3>
+                    <p>Personalize your workspace by uploading your own background images.</p>
+                </div>
+                <div class="feature">
+                    <h3>🌙 Dark Mode</h3>
+                    <p>Easy on the eyes with built-in dark theme support. Toggle with a single click.</p>
+                </div>
+                <div class="feature">
+                    <h3>💾 Export/Import</h3>
+                    <p>Backup and restore your data as JSON. Never lose your notes.</p>
+                </div>
+                <div class="feature">
+                    <h3>📌 Pin Important Notes</h3>
+                    <p>Keep your most important notes at the top for quick access.</p>
+                </div>
+                <div class="feature">
+                    <h3>⌨️ Keyboard Shortcuts</h3>
+                    <p>Efficient navigation with keyboard shortcuts for power users.</p>
+                </div>
+            </div>
+
+            <div class="installation">
+                <h3>Installation</h3>
+                <ol>
+                    <li>Clone or download the repository from GitHub</li>
+                    <li>Install dependencies: <code>npm install</code></li>
+                    <li>Build the extension: <code>npm run build</code></li>
+                    <li>Open Chrome and navigate to <code>chrome://extensions/</code></li>
+                    <li>Enable "Developer mode" in the top right corner</li>
+                    <li>Click "Load unpacked" and select the <code>dist</code> folder</li>
+                    <li>Open a new tab and start taking notes!</li>
+                </ol>
+            </div>
+
+            <h2>Privacy First</h2>
+            <p style="text-align: center; color: #666; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                All your data is stored locally in your browser using Chrome's storage API.
+                No data is sent to external servers. Your notes stay private and secure on your device.
+            </p>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ using Manifest V3 and Quill.js</p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/imaravin/newtab-notes" class="github-link">View Source on GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
