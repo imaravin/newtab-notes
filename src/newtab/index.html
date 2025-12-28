@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewTab Notes</title>
+
+  <!-- Quill CSS (Local) -->
+  <link href="/lib/quill.snow.css" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Quill JS (Local) - Load before our app -->
+  <script src="/lib/quill.js"></script>
+</head>
+<body>
+  <!-- Main App Container -->
+  <div id="app" class="app-container">
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+      <div class="nav-left">
+        <button id="newNoteButton" class="new-note-btn">+ New Note</button>
+      </div>
+      <div class="nav-center">
+        <div id="noteTabs" class="note-tabs">
+          <!-- Tabs will be rendered here -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- Editor Area -->
+    <main class="editor-area">
+      <div id="emptyState" class="empty-state">
+        <div class="empty-state-content">
+          <div class="empty-state-icon">📝</div>
+          <h2>Welcome to NewTab Notes</h2>
+          <p>Create a new note to get started</p>
+        </div>
+      </div>
+
+      <div id="editorContainer" class="editor-container" style="display: none;">
+        <div class="editor-header">
+          <input
+            type="text"
+            id="noteTitle"
+            class="note-title-input"
+            placeholder="Untitled"
+          >
+        </div>
+
+        <div id="editor" class="quill-editor"></div>
+
+        <div class="editor-footer">
+          <small id="lastSaved" class="last-saved">All changes saved</small>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Settings</h2>
+        <button id="closeSettings" class="close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Wallpaper Settings -->
+        <section class="settings-section">
+          <h3>Background Wallpaper</h3>
+          <div class="wallpaper-controls">
+            <button id="uploadWallpaper" class="button button-secondary">
+              Upload Wallpaper
+            </button>
+            <button id="removeWallpaper" class="button button-secondary">
+              Remove Wallpaper
+            </button>
+            <input
+              type="file"
+              id="wallpaperInput"
+              accept="image/*"
+              style="display: none;"
+            >
+          </div>
+          <div class="opacity-control">
+            <label for="opacitySlider">Background Opacity:</label>
+            <input
+              type="range"
+              id="opacitySlider"
+              min="0"
+              max="100"
+              value="30"
+            >
+            <span id="opacityValue">30%</span>
+          </div>
+        </section>
+
+        <!-- Export/Import Settings -->
+        <section class="settings-section">
+          <h3>Data Management</h3>
+          <div class="data-controls">
+            <button id="exportData" class="button button-secondary">
+              Export All Data
+            </button>
+            <button id="importData" class="button button-secondary">
+              Import Data
+            </button>
+            <input
+              type="file"
+              id="importInput"
+              accept=".json"
+              style="display: none;"
+            >
+          </div>
+        </section>
+
+        <!-- About -->
+        <section class="settings-section">
+          <h3>About</h3>
+          <p>NewTab Notes v1.0.0</p>
+          <p>A powerful note-taking extension with folders, checklists, and rich text editing.</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Folder Modal -->
+  <div id="folderModal" class="modal" style="display: none;">
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h2 id="folderModalTitle">New Folder</h2>
+        <button id="closeFolderModal" class="close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="folderName">Folder Name:</label>
+          <input
+            type="text"
+            id="folderName"
+            class="input"
+            placeholder="Enter folder name"
+            maxlength="50"
+          >
+        </div>
+        <div class="form-group">
+          <label>Folder Color:</label>
+          <div class="color-picker">
+            <button class="color-option" data-color="#FF6B6B" style="background: #FF6B6B;"></button>
+            <button class="color-option" data-color="#4ECDC4" style="background: #4ECDC4;"></button>
+            <button class="color-option" data-color="#45B7D1" style="background: #45B7D1;"></button>
+            <button class="color-option" data-color="#FFA07A" style="background: #FFA07A;"></button>
+            <button class="color-option" data-color="#98D8C8" style="background: #98D8C8;"></button>
+            <button class="color-option" data-color="#F7DC6F" style="background: #F7DC6F;"></button>
+            <button class="color-option" data-color="#BB8FCE" style="background: #BB8FCE;"></button>
+            <button class="color-option selected" data-color="#4A90E2" style="background: #4A90E2;"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="cancelFolder" class="button button-secondary">Cancel</button>
+        <button id="saveFolder" class="button button-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Delete Modal -->
+  <div id="confirmModal" class="modal" style="display: none;">
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h2 id="confirmTitle">Confirm</h2>
+        <button id="closeConfirm" class="close-button">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p id="confirmMessage">Are you sure?</p>
+      </div>
+
+      <div class="modal-footer">
+        <button id="cancelConfirm" class="button button-secondary">Cancel</button>
+        <button id="confirmAction" class="button button-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- App JS - Loads after Quill (from head) -->
+  <script type="module" src="./index.js"></script>
+</body>
+</html>

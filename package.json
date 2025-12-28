@@ -1,0 +1,27 @@
+{
+  "name": "newtab-notes",
+  "version": "1.0.0",
+  "description": "A powerful note-taking Chrome extension for your new tab",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && cp -r public/icons dist/ && cp -r public/lib dist/",
+    "preview": "vite preview",
+    "icons": "node create-icons-svg.js && node convert-svg-to-png.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "notes",
+    "new-tab",
+    "productivity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "quill": "^2.0.3"
+  }
+}
