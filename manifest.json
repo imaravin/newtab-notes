@@ -5,7 +5,8 @@
   "description": "A powerful note-taking extension with folders, checklists, and rich text editing for your new tab",
 
   "permissions": [
-    "storage"
+    "storage",
+    "history"
   ],
 
   "chrome_url_overrides": {

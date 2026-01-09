@@ -16,7 +16,7 @@ None
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Manifest & Permissions** - Add Chrome history permission to manifest
+- [x] **Phase 1: Manifest & Permissions** - Add Chrome history permission to manifest
 - [ ] **Phase 2: History Service** - Create service to query Chrome History API for frequency data
 - [ ] **Phase 3: Quick Links UI Component** - Build top bar UI component for displaying links
 - [ ] **Phase 4: Integration & State Management** - Connect history service to UI, handle navigation
@@ -34,7 +34,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01: Add history permission to manifest.json, update CSP if needed
+- [x] 01-01: Add history permission to manifest.json, update CSP if needed
 
 ### Phase 2: History Service
 **Goal**: Create service to fetch and rank frequently visited websites
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Manifest & Permissions | 0/1 | Not started | - |
+| 1. Manifest & Permissions | 1/1 | ✓ Complete | 2026-01-09 |
 | 2. History Service | 0/3 | Not started | - |
 | 3. Quick Links UI Component | 0/2 | Not started | - |
 | 4. Integration & State Management | 0/3 | Not started | - |

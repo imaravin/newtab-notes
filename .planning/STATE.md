@@ -5,33 +5,33 @@
 See: .planning/PROJECT.md (updated 2026-01-09)
 
 **Core value:** Provide a seamless blend of note-taking and web navigation in a single new tab experience, making both writing notes and accessing frequent websites effortless.
-**Current focus:** Phase 1 — Manifest & Permissions
+**Current focus:** Phase 2 — History Service
 
 ## Current Position
 
-Phase: 1 of 8 (Manifest & Permissions)
-Plan: Not started
-Status: Ready to plan
-Last activity: 2026-01-09 — Project initialized with 8 comprehensive phases
+Phase: 2 of 8 (History Service)
+Plan: Ready to plan
+Status: Phase 1 complete, moving to Phase 2
+Last activity: 2026-01-09 — Phase 1 complete: Added history permission to manifest
 
-Progress: ░░░░░░░░░░ 0% (0/18 plans)
+Progress: █░░░░░░░░░ 6% (1/18 plans)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: <1 min
+- Total execution time: <1 hour
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| — | — | — | — |
+| Phase 1 | 1 | <1 min | <1 min |
 
 **Recent Trend:**
-- Last 5 plans: —
-- Trend: —
+- Last 5 plans: 01-01 (complete)
+- Trend: Starting strong
 
 *Updated after each plan completion*
 
@@ -57,6 +57,22 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-01-09 23:42
-Stopped at: Roadmap created with 8 phases, ready to begin planning Phase 1
+Last session: 2026-01-09 (active)
+Stopped at: Phase 1 complete, ready to plan Phase 2 (History Service)
 Resume file: None
+
+## Phase 1 Summary
+
+**Completed**: 2026-01-09
+**Duration**: <1 min
+**Plans executed**: 1/1 (100%)
+
+**What was done:**
+- Added "history" permission to manifest.json (manifest.json:9)
+- Verified CSP compatibility (no changes needed)
+- Built extension successfully, verified dist/manifest.json contains permission
+- Extension ready for Phase 2 (History Service implementation)
+
+**Files modified:**
+- manifest.json - Added history permission
+- dist/manifest.json - Built output reflects changes
